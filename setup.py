@@ -2,8 +2,8 @@ from setuptools import setup
 
 setup(
     name='fileversioninger',
-    version='0.4',
-    download_link='https://github.com/dwickstrom/fileversioninger/tarball/0.4 ',
+    version='0.5',
+    download_link='https://github.com/dwickstrom/fileversioninger/tarball/0.5 ',
     author='David Wickstrom',
     author_email='davidwickstrom@gmail.com',
     packages=['fileversioninger', 'tests'],

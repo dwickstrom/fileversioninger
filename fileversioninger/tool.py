@@ -48,7 +48,6 @@ def remove_revision_suffix_from(filename):
     if len(parts) == 2:
         return head(parts) \
             if '' not in parts and is_number(last(parts)) else '#'.join(parts)
-    print 'HELLO'
     return '#'.join(init(parts)) \
         if not last(parts) is '' else '#'.join(init(parts)) + '#'
 
