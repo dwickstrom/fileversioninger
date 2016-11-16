@@ -60,3 +60,11 @@ def test_can_handle_file_names_with_multiple_dots():
 def test_can_handle_file_names_without_a_name():
     actual = suggest_new_filename('.txt', lambda a: False)
     assert_equal('#001.txt', actual)
+
+def test_it_handles_files_that_end_with_a_dot():
+    actual = suggest_new_filename('file.', lambda a: False)
+    assert_equal('file.#001', actual)
+
+def test_it_handles_files_without_extension_and_hash_in_the_middle():
+    actual = suggest_new_filename('foo#bar', lambda a: False)
+    assert_equal('foo#bar#001', actual)

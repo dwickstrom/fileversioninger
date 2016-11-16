@@ -1,4 +1,4 @@
-# FileVersionInger [WIP] [![Build Status](https://travis-ci.org/dwickstrom/fileversioninger.svg?branch=master)](https://travis-ci.org/dwickstrom/fileversioninger)
+# FileVersionInger [![Build Status](https://travis-ci.org/dwickstrom/fileversioninger.svg?branch=master)](https://travis-ci.org/dwickstrom/fileversioninger)
 Did you look for a solution that allows you to append a file revision suffix to your file name, but couldn't find one?
 
 ```python
