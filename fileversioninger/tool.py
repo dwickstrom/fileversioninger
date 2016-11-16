@@ -20,9 +20,19 @@ def init(xs):
 def get_extension_from(filename):
     return last(filename.split('.')) if '.' in filename else ''
 
+# is_number :: String -> Boolean
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
 
 # remove_extension_from :: String -> String
 def remove_extension_from(filename):
+    if last(filename) is '.':
+        return filename
     path, ext = os.path.splitext(filename)
     return path if not (filename == path) else \
         '' if path.startswith('.') else path
@@ -34,8 +44,7 @@ def remove_revision_suffix_from(filename):
     if len(parts) == 1:
         return filename
     if len(parts) == 2:
-        # Allow file names to contain, start or endwith #
-        return head(parts) if '' not in parts else '#'.join(parts)
+        return head(parts) if '' not in parts and is_number(last(parts)) else '#'.join(parts)
     return '#'.join(init(parts))
 
 
