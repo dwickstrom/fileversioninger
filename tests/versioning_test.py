@@ -18,6 +18,7 @@ def test_can_suggest_a_non_existing_filename_using_filename_with_hash_middle_of_
     actual = suggest_new_filename('foo#bar#002.txt', predicate)
     assert_equal('foo#bar#003.txt', actual)
 
+
 def test_can_append_suffix_with_hash_and_zero_left_padding():
     actual = append_suffix_to('foo')
     assert_equal('foo#001', actual)
@@ -31,6 +32,7 @@ def test_can_append_suffix_with_hash_and_zero_left_padding():
     actual = append_suffix_to('foo', 1001)
     assert_equal('foo#1001', actual)
 
+
 def test_can_suggest_a_non_existing_filename_using_filename_starting_and_ending_with_hash():
     predicate = lambda a: False
 
@@ -39,6 +41,7 @@ def test_can_suggest_a_non_existing_filename_using_filename_starting_and_ending_
 
     actual = suggest_new_filename('bar#.file', predicate)
     assert_equal('bar##001.file', actual)
+
 
 def test_it_removes_file_extensions_from_string():
     actual = remove_extension_from('foobar.txt')
@@ -49,22 +52,32 @@ def test_it_removes_file_extensions_from_string():
     expected = 'foobar'
     assert_equal(actual, expected)
 
+
 def test_can_handle_file_names_without_extensions():
     actual = suggest_new_filename('bar', lambda a: False)
     assert_equal('bar#001', actual)
+
 
 def test_can_handle_file_names_with_multiple_dots():
     actual = suggest_new_filename('foo.bar.txt', lambda a: False)
     assert_equal('foo.bar#001.txt', actual)
 
+
 def test_can_handle_file_names_without_a_name():
     actual = suggest_new_filename('.txt', lambda a: False)
     assert_equal('#001.txt', actual)
+
 
 def test_it_handles_files_that_end_with_a_dot():
     actual = suggest_new_filename('file.', lambda a: False)
     assert_equal('file.#001', actual)
 
+
 def test_it_handles_files_without_extension_and_hash_in_the_middle():
     actual = suggest_new_filename('foo#bar', lambda a: False)
     assert_equal('foo#bar#001', actual)
+
+
+def test_it_handles_files_with_hash_inside_and_ends_with_hash_too():
+    actual = suggest_new_filename('foo#bar#', lambda a: False)
+    assert_equal('foo#bar##001', actual)

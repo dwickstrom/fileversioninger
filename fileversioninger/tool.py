@@ -42,12 +42,14 @@ def remove_extension_from(filename):
 # remove_extension_from :: String -> String
 def remove_revision_suffix_from(filename):
     parts = filename.split('#')
+    print parts
     if len(parts) == 1:
         return filename
     if len(parts) == 2:
         return head(parts) \
             if '' not in parts and is_number(last(parts)) else '#'.join(parts)
-    return '#'.join(init(parts))
+    print 'HELLO'
+    return '#'.join(init(parts)) if not last(parts) is '' else '#'.join(init(parts)) + '#'
 
 
 # append_suffix_to :: String -> Integer -> String
