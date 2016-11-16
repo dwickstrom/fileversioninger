@@ -42,7 +42,6 @@ def remove_extension_from(filename):
 # remove_extension_from :: String -> String
 def remove_revision_suffix_from(filename):
     parts = filename.split('#')
-    print parts
     if len(parts) == 1:
         return filename
     if len(parts) == 2:
